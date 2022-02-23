@@ -1,5 +1,17 @@
-import { Box, Button, Center, Flex, Grid, GridItem, HStack, Text, VStack } from "@chakra-ui/react";
-import { HamburgerIcon, CalendarIcon, EmailIcon, WarningTwoIcon } from "@chakra-ui/icons";
+import {
+	Box,
+	Button,
+	Center,
+	Flex,
+	Grid,
+	GridItem,
+	HStack,
+	IconButton,
+	Text,
+	useColorMode,
+	VStack,
+} from "@chakra-ui/react";
+import { HamburgerIcon, CalendarIcon, EmailIcon, WarningTwoIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -7,6 +19,8 @@ const Home: NextPage = () => {
 	const fruits: string[] = ["apple", "banana", "grape"];
 
 	const gridTexts: string[] = ["abcd", "owo", "brb", "aiueo", "nvm", "http", "margin"];
+
+	const { colorMode, toggleColorMode } = useColorMode();
 
 	const decideColor = (fruit: string): string => {
 		if (fruit === "apple") {
@@ -27,7 +41,14 @@ const Home: NextPage = () => {
 			</Head>
 
 			<main>
-				<Flex color="#333" h="200px">
+				<Box>
+					<IconButton
+						aria-label="dark or light"
+						icon={colorMode === "light" ? <SunIcon /> : <MoonIcon />}
+						onClick={toggleColorMode}
+					/>
+				</Box>
+				<Flex h="200px">
 					{fruits.map((fruit, i) => (
 						<Center bg={decideColor(fruit)} key={i} flex="1">
 							<VStack>
