@@ -1,9 +1,12 @@
-import { Button, Center, Flex, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Grid, GridItem, HStack, Text, VStack } from "@chakra-ui/react";
+import { HamburgerIcon, CalendarIcon, EmailIcon, WarningTwoIcon } from "@chakra-ui/icons";
 import type { NextPage } from "next";
 import Head from "next/head";
 
 const Home: NextPage = () => {
 	const fruits: string[] = ["apple", "banana", "grape"];
+
+	const gridTexts: string[] = ["abcd", "owo", "brb", "aiueo", "nvm", "http", "margin"];
 
 	const decideColor = (fruit: string): string => {
 		if (fruit === "apple") {
@@ -14,6 +17,7 @@ const Home: NextPage = () => {
 			return "blue";
 		}
 	};
+
 	return (
 		<div>
 			<Head>
@@ -33,6 +37,26 @@ const Home: NextPage = () => {
 						</Center>
 					))}
 				</Flex>
+				<Box>
+					<Center h="300">
+						<Text fontSize="2xl">hello</Text>
+					</Center>
+				</Box>
+				<Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap="4" px="4">
+					{gridTexts.map((txt, i) => (
+						<GridItem key={i} border="1px" bg="yellow.400">
+							<Center h="150">{txt}</Center>
+						</GridItem>
+					))}
+				</Grid>
+				<Box w="full">
+					<HStack spacing={16}>
+						<HamburgerIcon w={16} h={16} />
+						<CalendarIcon w={16} h={16} />
+						<EmailIcon w={16} h={16} />
+						<WarningTwoIcon w={16} h={16} />
+					</HStack>
+				</Box>
 			</main>
 		</div>
 	);
