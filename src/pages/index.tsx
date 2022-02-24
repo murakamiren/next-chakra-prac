@@ -54,10 +54,10 @@ const Home: NextPage = () => {
 				</Grid>
 				<Box w="full">
 					<HStack spacing={16}>
-						<HamburgerIcon w={16} h={16} />
-						<CalendarIcon w={16} h={16} />
-						<EmailIcon w={16} h={16} />
-						<WarningTwoIcon w={16} h={16} />
+						<HamburgerIcon w={8} h={8} />
+						<CalendarIcon w={8} h={8} />
+						<EmailIcon w={8} h={8} />
+						<WarningTwoIcon w={8} h={8} />
 					</HStack>
 				</Box>
 			</Fragment>
